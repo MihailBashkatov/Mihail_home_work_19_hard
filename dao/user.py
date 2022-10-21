@@ -29,11 +29,10 @@ class UserDAO:
         self.session.commit()
         return new_user
 
-    def update_user(self, data):
+    def update_user(self, data, user_name):
         """
             Обновление пользователя
         """
-        user_name = data.get('username')
         self.session.query(User).filter(User.username == user_name).update(data)
         self.session.commit()
 

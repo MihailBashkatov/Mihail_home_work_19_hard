@@ -32,14 +32,14 @@ class UserService:
         data['password'] = hashed_password
         self.dao.create_user(data)
 
-    def update_user(self, data):
+    def update_user(self, data, username):
         """
             Обновление пользователя
         """
         password = data.get('password')
         hashed_password = self.get_hash(password)
         data['password'] = hashed_password
-        self.dao.update_user(data)
+        self.dao.update_user(data, username)
 
     def get_all(self):
         """

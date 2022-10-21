@@ -34,7 +34,6 @@ def admin_required(func):
         token = data.split("Bearer ")[-1]
         try:
             token_decoded = jwt.decode(token, secret, algorithms=[algo])
-
             if token_decoded['role'] != 'admin':
                 abort(403)
         except Exception:

@@ -14,7 +14,7 @@ from implemented import user_service
 # Формирование нэймспейса
 user_ns = Namespace('users')
 
-# Формирование сереилизаторов для модели User для одного элемента и для списка
+# Формирование сереfлизаторов для модели User для одного элемента и для списка
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
@@ -50,11 +50,10 @@ class UserView(Resource):
         """
         try:
             data = request.json
-            print(data)
-            user_service.update_user(data)
+            user_service.update_user(data, username)
             return '', 201
-        except Exception:
-            return 404
+        except Exception as e:
+            return e
 
 
 @user_ns.route('/')
