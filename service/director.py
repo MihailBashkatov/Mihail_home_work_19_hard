@@ -14,21 +14,21 @@ class DirectorService:
         """
         return self.director_dao.get_director(did)
 
-    def create(self, data):
+    def create_director(self, data):
         """
             Создание директора
         """
-        return self.dao.create(data)
+        return self.director_dao.create(data)
 
-    def update(self, data):
+    def update_director(self, data):
         """
             Обновление директора
         """
-        self.dao.update(data)
+        self.director_dao.update_director(data)
         return self.dao
 
-    def delete(self, did):
+    def delete_director(self, did):
         """
             Удаление директора
         """
-        self.dao.delete(did)
+        self.director_dao.delete(did)

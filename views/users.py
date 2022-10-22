@@ -52,8 +52,8 @@ class UserView(Resource):
             data = request.json
             user_service.update_user(data, username)
             return '', 201
-        except Exception as e:
-            return e
+        except Exception:
+            return 404
 
 
 @user_ns.route('/')
@@ -69,7 +69,7 @@ class UsersView(Resource):
         except Exception:
             return 404
 
-    @admin_required
+    # @admin_required
     def get(self):
         """
             Формирование представления для получения пользователей

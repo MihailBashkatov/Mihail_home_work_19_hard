@@ -30,7 +30,7 @@ class DirectorsView(Resource):
             directors = director_service.get_directors()
             return directors_schema.dump(directors), 200
         except Exception:
-            return f'{e}', 404
+            return  404
 
     @admin_required
     def post(self):
@@ -42,7 +42,7 @@ class DirectorsView(Resource):
             director_service.create(data)
             return '', 201
         except Exception:
-            return f'{e}', 404
+            return  404
 
 
 @director_ns.route('/<int:did>')
@@ -56,7 +56,7 @@ class DirectorView(Resource):
             director = director_service.get_director(did)
             return director_schema.dump(director), 200
         except Exception:
-            return f'{e}', 404
+            return  404
 
     @admin_required
     def delete(self, did):
@@ -67,7 +67,7 @@ class DirectorView(Resource):
             director_service.delete(did)
             return '', 201
         except Exception:
-            return f'{e}', 404
+            return  404
 
     @admin_required
     def put(self, did):
@@ -79,4 +79,4 @@ class DirectorView(Resource):
             director_service.update(data)
             return '', 201
         except Exception:
-            return f'{e}', 404
+            return  404

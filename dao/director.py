@@ -17,7 +17,7 @@ class DirectorDAO:
         """
         return self.session.query(Director).filter(Director.id == did).one()
 
-    def create(self, data):
+    def create_director(self, data):
         """
             Создание директора
         """
@@ -26,7 +26,7 @@ class DirectorDAO:
         self.session.commit()
         return director_created
 
-    def delete(self, did):
+    def delete_director(self, did):
         """
             Удаление директора
         """
@@ -34,7 +34,7 @@ class DirectorDAO:
         self.session.delete(director)
         self.session.commit()
 
-    def update(self, data):
+    def update_director(self, data):
         """
             Обновление директора
         """

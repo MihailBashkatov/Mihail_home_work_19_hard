@@ -17,21 +17,21 @@ class GenreService:
         """
         return self.genre_dao.get_genre(gid)
 
-    def create(self, data):
+    def create_genre(self, data):
         """
             Создание жанра
         """
-        return self.dao.create(data)
+        return self.genre_dao.create(data)
 
-    def update(self, data):
+    def update_genre(self, data):
         """
             Обновление жанра
         """
-        self.dao.update(data)
+        self.genre_dao.update(data)
         return self.dao
 
-    def delete(self, gid):
+    def delete_genre(self, gid):
         """
             Удаление жанра
         """
-        self.dao.delete(gid)
+        self.genre_dao.delete(gid)

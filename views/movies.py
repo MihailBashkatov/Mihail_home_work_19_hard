@@ -55,8 +55,8 @@ class MoviesView(Resource):
                 return 'No such movie', 200
             print(request.headers)
             return movies_list, 200
-        except Exception as e:
-            return f'{e}', 404
+        except Exception:
+            return 404
 
     @admin_required
     def post(self):
@@ -67,8 +67,8 @@ class MoviesView(Resource):
             data = request.json
             movie_service.create_movie(data)
             return '', 201
-        except Exception as e:
-            return f'{e}', 404
+        except Exception:
+            return 404
 
 
 @movies_ns.route('/<mid>')
@@ -84,8 +84,8 @@ class MovieView(Resource):
             if movie_schema.dump(movie) == {}:
                 return 'No such movie', 200
             return movie_schema.dump(movie), 200
-        except Exception as e:
-            return e, 404
+        except Exception:
+            return 404
 
     @admin_required
     def put(self, mid):
@@ -97,8 +97,8 @@ class MovieView(Resource):
             data = request.json
             movie_service.update_movie(data, mid)
             return '', 201
-        except Exception as e:
-            return e, 404
+        except Exception:
+            return 404
 
     @admin_required
     def delete(self, mid):
@@ -109,5 +109,5 @@ class MovieView(Resource):
         try:
             movie_service.delete_movie(mid)
             return '', 201
-        except Exception as e:
-            return e, 404
+        except Exception:
+            return 404

@@ -30,7 +30,7 @@ class GenresView(Resource):
             genres = genre_service.get_genres()
             return genres_schema.dump(genres), 200
         except Exception:
-            return f'{e}', 404
+            return 404
 
     @admin_required
     def post(self):
@@ -42,7 +42,7 @@ class GenresView(Resource):
             genre_service.create(data)
             return '', 201
         except Exception:
-            return f'{e}', 404
+            return 404
 
 
 @genre_ns.route('/<int:gid>')
@@ -56,7 +56,7 @@ class GenreView(Resource):
             genre = genre_service.get_genre(gid)
             return genre_schema.dump(genre), 200
         except Exception:
-            return f'{e}', 404
+            return 404
 
     @admin_required
     def delete(self, gid):
@@ -67,7 +67,7 @@ class GenreView(Resource):
             genre_service.delete(gid)
             return '', 201
         except Exception:
-            return f'{e}', 404
+            return  404
 
     @admin_required
     def put(self, gid):
@@ -79,4 +79,4 @@ class GenreView(Resource):
             genre_service.update(data)
             return '', 201
         except Exception:
-            return f'{e}', 404
+            return 404
